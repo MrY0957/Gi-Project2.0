@@ -24,6 +24,10 @@ nav a {
 section {
   padding: 20px;
 }
+#logic h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
 .card {
   background: #fff;
   border: 1px solid #ddd;
@@ -40,6 +44,7 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 20px;
+  bottom: 0;
 }
 /* Switch style */
 .switch {
@@ -94,3 +99,4 @@ footer {
   color: red;
   font-size: 20px;
 }
+
