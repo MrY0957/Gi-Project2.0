@@ -1,0 +1,107 @@
+{
+  "version": "3.0.0",
+  "darkMode": false,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "relationshipMode": "All",
+    "tablePositions": [
+      {
+        "name": "Disaster",
+        "schemaName": "public",
+        "x": 536,
+        "y": 560
+      },
+      {
+        "name": "Relief_Center",
+        "schemaName": "public",
+        "x": 16,
+        "y": 320
+      },
+      {
+        "name": "Volunteer",
+        "schemaName": "public",
+        "x": 542.6683114270799,
+        "y": 132.1745543346248
+      },
+      {
+        "name": "Donation",
+        "schemaName": "public",
+        "x": 16,
+        "y": 16
+      },
+      {
+        "name": "Resource_Allocation",
+        "schemaName": "public",
+        "x": 1088,
+        "y": 320
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": [
+      {
+        "firstFieldNames": [
+          "assigned_center_id"
+        ],
+        "firstTableName": "Volunteer",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "center_id"
+        ],
+        "secondTableName": "Relief_Center",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "disaster_id"
+        ],
+        "firstTableName": "Resource_Allocation",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "disaster_id"
+        ],
+        "secondTableName": "Disaster",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "center_id"
+        ],
+        "firstTableName": "Resource_Allocation",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "center_id"
+        ],
+        "secondTableName": "Relief_Center",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "location"
+        ],
+        "firstTableName": "Disaster",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "location"
+        ],
+        "secondTableName": "Relief_Center",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      }
+    ]
+  },
+  "views": {}
+}

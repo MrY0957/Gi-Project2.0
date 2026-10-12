@@ -1,0 +1,60 @@
+// Project Name: AidTrackDB (Disaster Relief Resource Management Database)
+
+Table Disaster {
+  disaster_id int [pk, increment]
+  disaster_name varchar(100) [not null]
+  disaster_type varchar(50) [not null]
+  location varchar(150) [not null]
+  start_date date [not null]
+}
+
+Table Relief_Center {
+  center_id int [pk, increment]
+  center_name varchar(150) [not null]
+  location varchar(150) [not null, note: 'আশ্রয়কেন্দ্রের নিজস্ব ঠিকানা']
+  capacity int [not null]
+  contact_no varchar(20) [unique]
+  disaster_id int [note: 'Foreign Key referencing Disaster']
+}
+
+Table Volunteer {
+  volunteer_id int [pk, increment]
+  volunteer_name varchar(100) [not null]
+  phone varchar(20) [unique, not null]
+  skills varchar(100)
+  assigned_center_id int [note: 'Foreign Key referencing Relief_Center']
+}
+
+Table Donation {
+  donation_id int [pk, increment]
+  donor_type enum [not null, note: 'NGO, Government, UN agencies']
+  donor_name varchar(100) [not null]
+  resource_type varchar(50) [not null]
+  quantity int [not null]
+  unit varchar(20) [not null]
+}
+
+Table Resource_Allocation {
+  allocation_id int [pk, increment]
+  disaster_id int [note: 'Foreign Key referencing Disaster']
+  center_id int [note: 'Foreign Key referencing Relief_Center']
+  allocated_resource varchar(50) [not null]
+  allocated_quantity int [not null]
+  allocation_date date [not null]
+}
+
+// ==========================================
+// RELATIONSHIPS / STRATEGIC CONNECTIONS
+// ==========================================
+
+// 1. One Disaster can be linked to multiple Relief Centers (One-to-Many)
+Ref: Relief_Center.disaster_id > Disaster.disaster_id [delete: set null]
+
+// 2. One Relief Center can have many Volunteers assigned to it (One-to-Many)
+Ref: Volunteer.assigned_center_id > Relief_Center.center_id [delete: set null]
+
+// 3. One Disaster can have multiple Resource Allocations (One-to-Many)
+Ref: Resource_Allocation.disaster_id > Disaster.disaster_id [delete: cascade]
+
+// 4. One Relief Center can receive multiple Resource Allocations (One-to-Many)
+Ref: Resource_Allocation.center_id > Relief_Center.center_id [delete: cascade]
